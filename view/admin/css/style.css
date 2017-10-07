@@ -24,7 +24,7 @@ body a{
 	text-decoration:none;
 }
 h1,h2,h3,h4,h5,h6{
-	margin:0;			   
+	margin:0;
 }
 p{
 	margin:0;
@@ -84,7 +84,7 @@ button#showLeftPush {
 	outline:none;
 }
 button#showLeftPush:hover {
-    color: #6164C1;
+    color: #1f5f89;
 }
 /*--push-menu-css--*/
 .cbp-spmenu {
@@ -95,7 +95,7 @@ button#showLeftPush:hover {
     height: 100%;
     top: 76px;
     z-index: 1000;
-    background-color:#4F52BA;
+    background-color:#1f5f89;
 	padding: 2em 0;
 }
 .cbp-spmenu-left {
@@ -210,27 +210,14 @@ ul.dropdown-menu{
 /*--//side-menu--*/
 /* ----Logo----*/
 .logo {
-    background: #6164C1;
-    text-align: center;
+    background:#ffffff;
     float: left;
 }
 .logo a{
     padding: 0.9em 3.3em .7em;
 	display: block;
-	text-decoration: none;
 }
-.logo a h1 {
-    color: #fff;
-    font-size: 1.5em;
-    line-height: 1.2em;
-    font-weight: 700;
-}
-.logo a span {
-    color: #F8F8F8;
-    font-size: .7em;
-    text-align: center;
-    letter-spacing: 7px;
-}
+
 /* ----//Logo----*/
 /*start search*/
 .search-box {
@@ -248,23 +235,23 @@ ul.dropdown-menu{
     margin: 0;
     z-index: 10;
     font-size: 0.9em;
-    color: #6164C1;
+    color: #1f5f89;
     padding: 0.5em 1em;
 	border: 2px solid rgba(79, 82, 186, 0.3);
 	-webkit-appearance: none; /* for box shadows to show on iOS */
 	font-family: 'Roboto Condensed', sans-serif;
 }
 .sb-search-input::-webkit-input-placeholder {
-	color:#6164C1;
+	color:#1f5f89;
 }
 .sb-search-input:-moz-placeholder {
-	color: #6164C1;
+	color: #1f5f89;
 }
 .sb-search-input::-moz-placeholder {
-	color: #6164C1;
+	color: #1f5f89;
 }
 .sb-search-input:-ms-input-placeholder {
-	color: #6164C1;
+	color: #1f5f89;
 }
 .input__label {
 	-webkit-font-smoothing: antialiased;
@@ -323,7 +310,7 @@ ul.dropdown-menu{
 .meter > span {
 	display: block;
 	height: 100%;
-	   
+
 	position: relative;
 	overflow: hidden;
 }
@@ -331,7 +318,7 @@ ul.dropdown-menu{
 	content: "";
 	position: absolute;
 	top: 0; left: 0; bottom: 0; right: 0;
-	
+
 	overflow: hidden;
 }
 
@@ -413,7 +400,7 @@ ul.dropdown-menu li {
 	border-radius:2em;
 	-webkit-border-radius:2em;
 	-moz-border-radius:2em;
-	-o-border-radius:2em;	
+	-o-border-radius:2em;
 	text-align:center;
 	display: inline-block;
 	position: absolute;
@@ -480,7 +467,7 @@ i.fa.fa-tasks{
 	border-bottom:1px solid rgba(0, 0, 0, 0.05);
 	margin-bottom: 8px;
 }
-.notification_header h3{	
+.notification_header h3{
 	color:#6A6A6A;
 	font-size:12px;
 	font-weight:600;
@@ -497,9 +484,9 @@ i.fa.fa-tasks{
 	 font-size: 1em;
 }
 .notification_bottom a:hover {
-    color:#6164C1;
+    color:#1f5f89;
 }
-.notification_bottom h3 a{	
+.notification_bottom h3 a{
 	color: #717171;
 	font-size:12px;
 	border-radius:0;
@@ -507,7 +494,7 @@ i.fa.fa-tasks{
 	padding:0;
 	text-align:center;
 }
-.notification_bottom h3 a:hover{	
+.notification_bottom h3 a:hover{
 	color:#4A4A4A;
 	text-decoration:underline;
 	background:none;
@@ -637,7 +624,7 @@ i.icon_6{
 }
 .progress .bar {
 		z-index: 2;
-		height:15px; 
+		height:15px;
 		font-size: 12px;
 		color: white;
 		text-align: center;
@@ -653,19 +640,19 @@ i.icon_6{
 	}
 .progress-striped .yellow{
 	background:#f0ad4e;
-} 
+}
 .progress-striped .green{
 	background:#5cb85c;
-} 
+}
 .progress-striped .light-blue{
-	background:#4F52BA;
-} 
+	background:#1f5f89;
+}
 .progress-striped .red{
 	background:#d9534f;
-} 
+}
 .progress-striped .blue{
 	background:#428bca;
-} 
+}
 .progress-striped .orange {
 	background:#e94e02;
 }
@@ -774,7 +761,7 @@ ul.dropdown-menu {
     position: absolute;
     top: 34%;
     right: 8%;
-    color: #4F52BA;
+    color: #1f5f89;
     font-size: 1.6em;
 }
 .profile_details ul li ul.dropdown-menu.drp-mnu {
@@ -837,7 +824,7 @@ ul.dropdown-menu.drp-mnu li {
 .stats-left {
     float: left;
     width: 70%;
-    background-color: #4F52BA;
+    background-color: #1f5f89;
 	text-align: center;
 	padding: 1em;
 }
@@ -940,7 +927,7 @@ h4.title {
     font-weight: 500;
 }
 .stats-table h5 {
-    color: #4F52BA;
+    color: #1f5f89;
     font-size: 0.9em;
 }
 .stats-table h5.down {
@@ -1179,7 +1166,7 @@ h3.hdg {
 .label {
   font-weight: 300 !important;
   border-radius:4px;
-}  
+}
 .grid_3 {
     padding: 1.5em 1em;
 }
@@ -1188,7 +1175,7 @@ h3.hdg {
 }
 .grid_5 h3, .grid_5 h2, .grid_5 h1, .grid_5 h4, .grid_5 h5, h3.hdg {
 	margin-bottom:0.6em;
-	color: #4F52BA;
+	color: #1f5f89;
 }
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
   z-index: 0;
@@ -1256,6 +1243,10 @@ section#tables  p {
 }
 }
 @media (max-width:480px){
+  .login-bg{
+    padding-top: 8em;
+    padding-bottom: 8em;
+  }
 	.table h1 {
 		font-size: 26px;
 	}
@@ -1470,7 +1461,7 @@ button.note-color-btn {
     margin-left: .5em;
 }
 .validation-grids .btn-primary{
-    background: #6164C1 !important;
+    background: #1f5f89 !important;
     color: #FFF;
     border: none;
     font-size: 0.9em;
@@ -1523,6 +1514,11 @@ button.note-color-btn {
 }
 /*--//blank-page--*/
 /*--login-page--*/
+.login-bg{
+  background-color: #1f5f89;
+  padding-top: 7em;
+  padding-bottom: 7.2em;
+}
 .login-page {
     width: 40%;
     margin: 1em auto 0;
@@ -1535,6 +1531,12 @@ button.note-color-btn {
     padding: 1.5em;
     border-bottom: 1px solid #DED9D9;
     text-align: center;
+}
+
+.login-page p{
+    color: #ffffff;
+    text-align: center;
+    margin-top: 10px;
 }
 .login-body {
 	padding: 2em;
@@ -1604,14 +1606,14 @@ button.note-color-btn {
     outline: none;
     cursor: pointer;
     color: #fff;
-    background: #6164C1;
+    background: #1f5f89;
     width: 100%;
     padding: .5em 1em;
     font-size: 1em;
     margin: 0.5em 0 0;
 }
 .login-page input[type="submit"]:hover{
-    background: #4F52BA;
+    background: #1f5f89;
 }
 .login-page-bottom {
     text-align: center;
@@ -1709,7 +1711,7 @@ p.creating {
 }
 .signup-page h5,.signup-page h6{
 	margin: 0 0 1em;
-    color:#6164C1;
+    color:#1f5f89;
     font-size: 1.1em;
 }
 .signup-page h6{
@@ -1741,7 +1743,7 @@ p.creating {
     outline: none;
     cursor: pointer;
     color: #fff;
-    background: #6164C1;
+    background: #1f5f89;
     width: 23%;
     padding: .5em 1em;
     font-size: 1em;
@@ -1815,7 +1817,7 @@ h4.modal-title {
 .modal-grids button.btn.btn-primary {
     background-color: #e94e02;
     font-size: 1em;
-    color: #fff;   
+    color: #fff;
 	border-color: #e94e02;
 	outline:none;
 	border-radius: 3px;
@@ -1982,7 +1984,7 @@ h4.modal-title {
     transform: rotate(-45deg);
     height: .4rem;
     width: .8rem;
-    border-color: #4F52BA;
+    border-color: #1f5f89;
     border-top-style: none;
     border-right-style: none;
     border-width: 2px;
@@ -2017,7 +2019,7 @@ h4.modal-title {
     background: none;
     font-size: 1em;
     margin-top: 0.5em;
-    color: #4F52BA;
+    color: #1f5f89;
 	outline:none;
 	font-weight: 600;
 }
@@ -2108,7 +2110,7 @@ h4.modal-title {
 .compose-right .alert.alert-info {
     padding: 10px 20px;
     font-size: 0.9em;
-    color: #6164C1;
+    color: #1f5f89;
 	background-color: rgba(212, 213, 243, 0.98);
     border-color: rgba(151, 153, 230, 0.41);
 	border-radius: inherit;
@@ -2142,8 +2144,8 @@ h4.modal-title {
 }
 .compose-right input[type="submit"] {
     font-size: 0.9em;
-    background-color: #6164C1;
-    border: 1px solid #4F52BA;
+    background-color: #1f5f89;
+    border: 1px solid #1f5f89;
     color: #fff;
     padding: 0.4em 1em;
     margin-top: 1em;
@@ -2156,7 +2158,7 @@ h4.modal-title {
 	width: 32%;
 }
 .profile-top {
-    background-color: #6164C1;
+    background-color: #1f5f89;
     text-align: center;
 	padding: 1.5em;
 }
@@ -2194,8 +2196,8 @@ h4.title3 {
     width: 85%;
 }
 .row-middle .profile-right {
-    border-top: 1px dotted #6164C1;
-    border-bottom: 1px dotted #6164C1;
+    border-top: 1px dotted #1f5f89;
+    border-bottom: 1px dotted #1f5f89;
     padding: 1em 0;
 }
 .profile-row .profile-icon {
@@ -2235,7 +2237,7 @@ i.fa.fa-facebook.profile-icon {
 }
 .profile-btm ul li h4 {
     font-size: 1.3em;
-    color: #6164C1;
+    color: #1f5f89;
     font-weight: 900;
 }
 .profile-btm ul li h5 {
@@ -2395,7 +2397,7 @@ i.fa.fa-facebook.profile-icon {
 }
 .header-top li p.cen {
     background: #FFFFFF;
-    color: #6164C1;
+    color: #1f5f89;
     border-radius: 0 3px 3px 0;
 }
 .whe {
@@ -2413,20 +2415,20 @@ i.fa.fa-facebook.profile-icon {
 }
 .header-bottom1 {
     float: left;
-    width: 25%;  
+    width: 25%;
 }
 .header-head{
 	padding: 2em;
 	text-align:center;
 }
 .header-bottom2 {
-  background: #f1f1f1;  
+  background: #f1f1f1;
 }
 .header-bottom1:nth-child(3) {
     border-right: none;
 }
 .header-head h4 {
-    color: #6164C1;
+    color: #1f5f89;
     font-size: 1.1em;
     margin-bottom: 1em;
 }
@@ -2482,7 +2484,7 @@ i.fa.fa-facebook.profile-icon {
 	text-align:center;
 }
 .widget_1_box .bg-info {
-    background-color: #6164C1;
+    background-color: #1f5f89;
 }
 .widget_1_box .bg-success {
     background-color: #F2B33F;
@@ -2509,7 +2511,7 @@ i.fa.fa-facebook.profile-icon {
     background: #EB621F;
 }
 .widget_1_box .progress-striped .orange {
-    background: #6164C1;
+    background: #1f5f89;
 }
 .widget_1_box .progress-striped .bar {
     background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
@@ -2936,9 +2938,6 @@ h3.title1 {
 .logo a {
     padding: 0.95em 1.95em .7em;
 }
-.logo a span {
-    letter-spacing: 5px;
-}
 .search-box {
     width: 39%;
 }
@@ -3031,13 +3030,6 @@ button#showLeftPush {
 .logo a {
     padding: 1.1em 1.3em .7em;
 }
-.logo a h1 {
-    font-size: 1.2em;
-	line-height:1em;
-}
-.logo a span {
-    font-size: .6em;
-}
 li.dropdown.head-dpdn a.dropdown-toggle {
     padding: 1em 1.4em;
 }
@@ -3076,7 +3068,7 @@ li.dropdown.head-dpdn a.dropdown-toggle {
 	left:0
 }
 .cbp-spmenu-vertical {
-    
+
 	left: -309px;
 }
 .activity-desc-sub:before {
@@ -3264,8 +3256,8 @@ h4.title {
 .logo a {
     padding: 1em 1.38em .6em;
 }
-.logo a span {
-    font-size: .55em;
+.logo a img {
+    width: 100px;
 }
 .cbp-spmenu-vertical {
     top: 67px;
@@ -3540,13 +3532,8 @@ h3.title1 {
 .logo a {
     padding: 0.9em 1em .3em;
 }
-.logo a h1 {
-    font-size: 1em;
-	line-height: 0.7em;
-}
-.logo a span {
-    letter-spacing: 4px;
-	font-size: .5em;
+.logo a img {
+  width: 90px;
 }
 button#showLeftPush {
     width: 51px;

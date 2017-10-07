@@ -1,48 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Web Profile Alumni">
-    <meta name="author" content="Rifardi Taufiq">
-    <title>Trust Medis</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/owl.carousel.min.css" rel="stylesheet">
-    <link href="css/owl.theme.default.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv_3_7_3.min.js"></script>
-    <script src="js/respond_1_4_2.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <header id="header">
-        <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo"></a>
-                </div>
 
-                <div class="collapse navbar-collapse navbar-right">
-                    <ul class="nav navbar-nav">
-                        <li class="scroll active"><a href="#home">Home</a></li>
-                        <li class="scroll"><a href="#features">Check Room</a></li>
-                        <li class="scroll"><a href="#services">Service</a></li>
-                        <li class="scroll"><a href="#portfolio">Login</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
+<?php
+include_once 'header.html';
+ ?>
     <section id="main-slider" class="container">
         <div class="owl-carousel owl-theme">
             <div class="item" style="background-image: url(img/img.jpg);">
@@ -116,30 +75,7 @@
         </div>
       </div>
     </section>
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="col-sm-4">
-              <h2>Contact</h2>
-              <section>No. Tel 08231242342</section>
-              <section>Jl. Manyar Kertoarjo 5 No.12 a</section>
-            </div>
-            <div class="col-sm-push-2 col-sm-4">
-              <h2>Mitra Kami</h2>
-              <section>No. Tel 08231242342</section>
-              <section>Jl. Manyar Kertoarjo 5 No.12 a</section>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
 
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/smooth-scroll.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/main.js"></script>
-  </body>
-</html>
+    <?php
+    include_once 'footer.html';
+     ?>
