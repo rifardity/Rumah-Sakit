@@ -1,25 +1,19 @@
 <?php
-/**
- *
- */
 class Database
 {
-  private $hostname = "localhost";
-  private $db_name  = "rumahsakit";
-  private $username = "root";
-  private $password = "";
-  public $conn;
+  private $hostname = 'localhost';
+  private $db_name  = 'rumahsakit';
+  private $username = 'root';
+  private $password = '';
+  private $link;
 
-  public function db_koneksi(){
-    $this->conn=null;
-    try{
-      $this->conn=new PDO("mysql:host=". $this->hostname .";dbname=". $this->db_name, $this->username, $this->password );
-      $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }catch(PDOException $e){
-      echo "Koneksi Error : " . $e->getMessage();
+  public function get_database(){
+      try {
+        $this->link = new PDO('mysql:host='.$this->hostname.';dbname='.$this->db_name, $this->username, $this->password);
+      } catch (PDOException $e) {
+        die('Gagal Konek Ke Database '.$e->getMessage());
+      }
+      return $this->link;
     }
-    return $this->conn;
-    }
-}
-
- ?>
+  }
+?>

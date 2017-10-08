@@ -8,7 +8,7 @@ include_once 'header.html';
 					<div class="row">
 						<h3 class="title1">Form Dokter </h3>
 						<div class="form-three widget-shadow">
-							<form class="form-horizontal">
+							<form action="app/process_dokter.php" method="post" class="form-horizontal">
 								<div class="form-group">
 									<label for="focusedinput" class="col-sm-2 control-label">Kode</label>
 									<div class="col-sm-8">

@@ -1,14 +1,13 @@
 <?php
 include_once 'header.html';
+require_once '../../app/class_kamar.php';
  ?>
-		<!-- main content start-->
 		<div id="page-wrapper">
 			<div class="main-page">
 				<div class="tables">
-					<h3 class="title1">Table Kamar</h3>
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table">
 						<h4>Daftar Kamar</h4>
-						<table class="table table-hover">
+						<table id="table" class="table table-hover">
               <thead>
                 <tr>
                   <th>Kode</th>
@@ -22,17 +21,29 @@ include_once 'header.html';
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>KM001</td>
-                  <td>Kamar Netral</td>
-                  <td>300</td>
-                  <td>Bougenvill Resident</td>
-                  <td>AC Dan Tempat Tidur</td>
-                  <td>1000000</td>
-                  <td><button type="button" name="button" class="btn btn-default">Edit</button></td>
-                  <td><button type="button" name="button" class="btn btn-default">Hapus</button></td>
-                </tr>
+                <?php
+                $kamar = new Kamar();
+                $sql=$kamar->tampil_kamar();
+                $sql->execute();
+                if ($sql->rowCount()>0) {
+                  while ($data = $sql->fetch(PDO::FETCH_OBJ)) {
+                    echo "
+                    <tr>
+                      <td>$data->KODE_KAMAR</td>
+                      <td>$data->NAMA_KAMAR</td>
+                      <td>$data->KAPASITAS_KAMAR</td>
+                      <td>$data->TIPE_KAMAR</td>
+                      <td>$data->FASILITAS_KAMAR</td>
+                      <td>$data->HARGA_KAMAR</td>
+                      <td><a href='editkamar.php?kode_kamar=$data->KODE_KAMAR' type='button' name='btn_edit' class='btn btn-default'>Edit</a></td>
+                      <td><a href='viewkamar.php?hapus=$data->KODE_KAMAR' type='button' name='btn_hapus' class='btn btn-default'>Hapus</a></td>
+                    </tr>";
 
+                  }
+                }else {
+                  echo "<tr><td>Data Masih Kosong</td></tr>";
+                }
+                ?>
               </tbody>
             </table>
 					</div>
@@ -42,4 +53,11 @@ include_once 'header.html';
 
 <?php
 include_once 'footer.html';
- ?>
+if (isset($_GET['hapus'])) {
+  if ($kamar->hapus_kamar($_GET['hapus'])) {
+    header("Location:viewkamar.php");
+  }else {
+    echo "<script>alert('Gagal Menhapus')</script>";
+  }
+}
+?>

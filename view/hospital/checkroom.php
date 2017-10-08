@@ -15,10 +15,13 @@ include_once 'header.html';
                 </div>
                   <div class="col-sm-8">
                     <select class="form-control" id="sel1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
+                      <option>President Suite</option>
+  										<option>VIP A</option>
+  										<option>VIP B</option>
+  										<option>VIP C</option>
+                      <option>Camelia (Kelas 1)</option>
+  										<option>Bougenville Room (Kelas 2)</option>
+                      <option>Gardenia Room (Kelas 3)</option>
                     </select>
                   </div>
                 </div>
@@ -31,6 +34,7 @@ include_once 'header.html';
             </div>
           </div>
         </div>
+        <h4 class="text-center">1 Ruangan Tersedian Untuk Pasien</h4>
       </div>
 
     </div>
