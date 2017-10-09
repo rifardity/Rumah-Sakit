@@ -18,7 +18,7 @@ require_once '../../app/class_kamar.php';
               <div class="form-group">
                 <label for="disabledinput" class="col-sm-2 control-label">Kode</label>
                 <div class="col-sm-8">
-                  <input id="disabledinput" type="text" class="form-control1" name="kode_kamar" placeholder="Kode Kamar" value="<?php echo $data->KODE_KAMAR; ?>" required>
+                  <input id="disabledinput" disabled type="text" class="form-control1" name="kode_kamar" placeholder="Kode Kamar" value="<?php echo $data->KODE_KAMAR; ?>" required>
                 </div>
               </div>
               <div class="form-group">
@@ -79,7 +79,7 @@ require_once '../../app/class_kamar.php';
 
     if (isset($_POST['btn_save'])) {
       $kamar = new Kamar();
-      $kode_kamar = $_POST['kode_kamar'];
+      $kode_kamar = $_GET['kode_kamar'];
       $nama_kamar = $_POST['nama_kamar'];
       $kapasitas_kamar = $_POST['kapasitas_kamar'];
       $tipe_kamar = $_POST['tipe_kamar'];
