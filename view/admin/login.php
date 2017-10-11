@@ -1,9 +1,3 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -50,10 +44,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 				<h4>Welcome back to Novus AdminPanel ! <br> Not a Member? <a href="signup.html">  Sign Up »</a> </h4>
 			</div>
 			<div class="login-body">
-				<form>
-					<input type="text" class="user" name="email" placeholder="Enter your email" required="">
+				<form method="post">
+					<input type="text" class="user" name="username" placeholder="Enter your email" required="">
 					<input type="password" name="password" class="lock" placeholder="password">
-					<input type="submit" name="Sign In" value="Sign In">
+					<input type="submit" name="btn_login" value="Sign In">
 					<div class="forgot-grid">
 						<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Remember me</label>
 						<div class="forgot">
@@ -68,6 +62,19 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 		</footer>
 	</div>
 </div>
-
 </body>
 </html>
+
+<?php
+require_once '../../app/class_user.php';
+if (isset($_POST['btn_login'])) {
+	$user = new User();
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	if ($user->cek_user($username,$password)) {
+		header("Location:index.php");
+	}else {
+		echo "<script>alert('Gagal Login')</script>";
+	}
+}
+?>

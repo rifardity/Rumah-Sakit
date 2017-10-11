@@ -1,5 +1,6 @@
 <?php
 include_once 'header.html';
+require_once '../../app/class_obat.php';
  ?>
 		<!-- main content start-->
 		<div id="page-wrapper">
@@ -20,15 +21,28 @@ include_once 'header.html';
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>PS001</td>
-                  <td>Panadol</td>
-                  <td>150000</td>
-                  <td>Kapsul</td>
-                  <td><button type="button" name="button" class="btn btn-default">Edit</button></td>
-                  <td><button type="button" name="button" class="btn btn-default">Hapus</button></td>
-                </tr>
+                <?php
+                $obat = new Obat();
+                $sql = $obat->tampil_obat();
+                $sql->execute();
+                if ($sql->rowCount()>0) {
+                  while ($data = $sql->fetch(PDO::FETCH_OBJ)) {
+                    echo "
+                    <tr>
+                      <td>$data->KODE_OBAT</td>
+                      <td>$data->NAMA_OBAT</td>
+                      <td>$data->HARGA_OBAT</td>
+                      <td>$data->TIPE_OBAT</td>
+                      <td><a href='editobat.php?kode_obat=$data->KODE_OBAT' type='button' name='btn_edit' class='btn btn-default'>Edit</a></td>
+                      <td><a href='viewobat.php?hapus=$data->KODE_OBAT' type='button' name='btn_save' class='btn btn-default'>Hapus</a></td>
+                    </tr>
 
+                    ";
+                  }
+                }else {
+                  echo "<tr><td>Data Masih Kosong</td></tr>";
+                }
+                ?>
               </tbody>
             </table>
 					</div>
@@ -38,4 +52,11 @@ include_once 'header.html';
 
 <?php
 include_once 'footer.html';
+if (isset($_GET['hapus'])) {
+  if ($obat->hapus_obat($_GET['hapus'])) {
+    header("Location:viewobat.php");
+  }else {
+    echo "<script>alert('Gagal Menhapus')</script>";
+  }
+}
  ?>

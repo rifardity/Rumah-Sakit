@@ -40,6 +40,8 @@ require_once '../../app/class_pasien.php';
                   </tr>
                   ";
                   }
+                }else {
+                  echo "<tr><td>Data Masih Kosong</td></tr>";
                 }
                 ?>
               </tbody>
@@ -51,7 +53,7 @@ require_once '../../app/class_pasien.php';
 
 <?php
 include_once 'footer.html';
-if ($_GET['hapus']) {
+if (isset($_GET['hapus'])) {
   if ($pasien->hapus_pasien($_GET['hapus'])) {
     header("Location:viewpasien.php");
   }else {

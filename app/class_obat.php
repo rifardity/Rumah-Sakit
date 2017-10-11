@@ -2,13 +2,9 @@
 require_once 'database.php';
 class Obat
 {
-    private $kode_obat;
-    private $nama_obat;
-    private $harga_obat;
-    private $tipe_obat;
     private $db;
 
-  function __construct(argument)
+  function __construct()
   {
     $link = new Database();
     $newdb = $link->get_database();
