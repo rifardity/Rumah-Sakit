@@ -1,5 +1,6 @@
 <?php
 include_once 'header.html';
+require_once '../../app/class_pasien.php';
  ?>
 		<!-- main content start-->
 		<div id="page-wrapper">
@@ -21,16 +22,26 @@ include_once 'header.html';
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>PS001</td>
-                  <td>Mursyid Effendi</td>
-                  <td>JL. Manyar Kertoarjo 4 No.15</td>
-                  <td>08144735632</td>
-                  <td>Sakit Tipes</td>
-                  <td><button type="button" name="button" class="btn btn-default">Edit</button></td>
-                  <td><button type="button" name="button" class="btn btn-default">Hapus</button></td>
-                </tr>
-
+                <?php
+                $pasien = new Pasien();
+                $sql = $pasien->tampil_pasien();
+                $sql->execute();
+                if ($sql->rowCount()>0) {
+                  while ($data=$sql->fetch(PDO::FETCH_OBJ)) {
+                  echo "
+                  <tr>
+                    <td>$data->KODE_PASIEN</td>
+                    <td>$data->NAMA_PASIEN</td>
+                    <td>$data->ALAMAT_PASIEN</td>
+                    <td>$data->TELEPON_PASIEN</td>
+                    <td>$data->PENYAKIT_PASIEN</td>
+                    <td><a href='editpasien.php?kode_pasien=$data->KODE_PASIEN' type='button' name='button' class='btn btn-default'>Edit</a></td>
+                    <td><a href='viewpasien.php?hapus=$data->KODE_PASIEN' type='button' name='button' class='btn btn-default'>Hapus</a></td>
+                  </tr>
+                  ";
+                  }
+                }
+                ?>
               </tbody>
             </table>
 					</div>
@@ -40,4 +51,11 @@ include_once 'header.html';
 
 <?php
 include_once 'footer.html';
+if ($_GET['hapus']) {
+  if ($pasien->hapus_pasien($_GET['hapus'])) {
+    header("Location:viewpasien.php");
+  }else {
+    echo "<script>alert('Gagal Menhapus')</script>";
+  }
+}
  ?>

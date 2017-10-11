@@ -4,7 +4,7 @@ class Pasien
 {
     private $db;
 
-  function __construct(argument)
+  function __construct()
   {
     $link = new Database();
     $newdb = $link->get_database();
