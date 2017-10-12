@@ -48,8 +48,11 @@ require_once '../../app/class_pasien.php';
 							$kamar = new Kamar();
 							$sql = $kamar->tampil_kamar();
 							$sql->execute();
-							$data = $sql->fetch(PDO::FETCH_NUM);
-							echo "<label>$data[0]</label>";
+							$jumlah = 0;
+							while ($data = $sql->fetch(PDO::FETCH_OBJ)) {
+								$jumlah += (int)$data->KAPASITAS_KAMAR;
+							}
+							echo "<label>$jumlah</label>";
 							?>
 						</div>
 					</div>

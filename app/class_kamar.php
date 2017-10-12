@@ -95,6 +95,45 @@ class Kamar
 
   }
 
+  public function kurangi_kamar($kode_kamar){
+    try {
+      $sql = $this->db->prepare("UPDATE kamar SET KAPASITAS_KAMAR =KAPASITAS_KAMAR-1 WHERE KODE_KAMAR=:kode_kamar AND KAPASITAS_KAMAR>0");
+      $sql->bindparam(":kode_kamar",$kode_kamar);
+      $sql->execute();
+      return true;
+    } catch (PDOException $e) {
+      die("Gagal Mengurangi Kamar : ".$e->getMessage());
+      return false;
+    }
+  }
+
+  public function tambahi_kamar($kode_kamar){
+    try {
+      $sql = $this->db->prepare("UPDATE kamar SET KAPASITAS_KAMAR =KAPASITAS_KAMAR+1 WHERE KODE_KAMAR=:kode_kamar AND KAPASITAS_KAMAR>0");
+      $sql->bindparam(":kode_kamar",$kode_kamar);
+      $sql->execute();
+      return true;
+    } catch (PDOException $e) {
+      die("Gagal Menambah Kamar : ".$e->getMessage());
+      return false;
+    }
+
+  }
+
+  public function cari_kamar($tipe_kamar){
+    try {
+      $sql = $this->db->prepare("SELECT * FROM kamar WHERE TIPE_KAMAR=:tipe_kamar");
+      $sql->bindparam(":tipe_kamar",$tipe_kamar);
+      $sql->execute();
+      return $sql;
+    } catch (PDOException $e) {
+      die("Gagal Mencari Kamar : ".$e->getMessage());
+      return false;
+    }
+
+  }
+
+
 }
 
 

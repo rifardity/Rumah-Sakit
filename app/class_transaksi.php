@@ -34,7 +34,7 @@ class Transaksi
     try {
       $sql = $this->db->prepare("SELECT * FROM transaksi WHERE kode_transaksi=:kode_transaksi");
       $sql->execute(array(":kode_transaksi"=>$kode_transaksi));
-      $data = $sql->fecth(PDO::FECTH_OBJ);
+      $data = $sql->fetch(PDO::FETCH_OBJ);
       return $data;
     } catch (PDOException $e) {
       die("Gagal Mengambil Data ".$kode_transaksi." Error ".$e->getMessage());
@@ -83,7 +83,6 @@ class Transaksi
       die("Gagal Menghapus Data Eror : ".$e->getMessage());
       return false;
     }
-
   }
 
   public function hitung_transaksi(){

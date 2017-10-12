@@ -15,10 +15,16 @@ require_once '../../app/class_transaksi.php';
 						<h3 class="title1">Form Transaksi </h3>
 						<div class="form-three widget-shadow">
 							<form method="post" class="form-horizontal">
+                <?php
+                if (isset($_GET['kode_transaksi'])) {
+                  $transaksi = new Transaksi();
+                  $data_transaksi = $transaksi->edit_transaksi($_GET['kode_transaksi']);
+                }
+                ?>
 								<div class="form-group">
 									<label for="focusedinput" class="col-sm-2 control-label">Kode Transaksi</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" name="kode_transaksi" placeholder="Kode Transaksi" required>
+										<input type="text" id="disabledinput" disabled class="form-control1" name="kode_transaksi" placeholder="Kode Transaksi" value="<?php echo $data_transaksi->KODE_TRANSAKSI ?>" required>
 									</div>
 								</div>
                 <div class="form-group">
@@ -30,7 +36,9 @@ require_once '../../app/class_transaksi.php';
                     $sql->execute();
                     if ($sql->rowCount()>0) {
                       while ($data = $sql->fetch(PDO::FETCH_OBJ)) {
-                        echo "<option>$data->KODE_OBAT $data->NAMA_OBAT</option>";
+                        echo "<option ";
+                        if($data_transaksi->KODE_OBAT==$data->KODE_OBAT){echo "selected";}
+                        echo ">$data->KODE_OBAT $data->NAMA_OBAT</option>";
                       }
                     } else {
                     echo "<option>Data Obat Masih Kosong</option>";
@@ -49,7 +57,9 @@ require_once '../../app/class_transaksi.php';
                     if ($sql->rowCount()>0) {
                       while ($data = $sql->fetch(PDO::FETCH_OBJ)) {
                         if ($data->KAPASITAS_KAMAR>0) {
-                        echo "<option>$data->KODE_KAMAR $data->NAMA_KAMAR</option>";
+                        echo "<option ";
+                        if($data_transaksi->KODE_KAMAR==$data->KODE_KAMAR){echo "selected";}
+                        echo">$data->KODE_KAMAR $data->NAMA_KAMAR</option>";
                         }
                       }
                     } else {
@@ -68,7 +78,9 @@ require_once '../../app/class_transaksi.php';
                     $sql->execute();
                     if ($sql->rowCount()>0) {
                       while ($data = $sql->fetch(PDO::FETCH_OBJ)) {
-                        echo "<option>$data->KODE_DOKTER $data->NAMA_DOKTER</option>";
+                        echo "<option ";
+                        if($data_transaksi->KODE_DOKTER==$data->KODE_DOKTER){echo "selected";}
+                        echo ">$data->KODE_DOKTER $data->NAMA_DOKTER</option>";
                       }
                     } else {
                     echo "<option>Data Dokter Masih Kosong</option>";
@@ -86,7 +98,9 @@ require_once '../../app/class_transaksi.php';
                     $sql->execute();
                     if ($sql->rowCount()>0) {
                       while ($data = $sql->fetch(PDO::FETCH_OBJ)) {
-                        echo "<option>$data->KODE_PASIEN $data->NAMA_PASIEN</option>";
+                        echo "<option ";
+                        if($data_transaksi->KODE_PASIEN==$data->KODE_PASIEN){echo "selected";}
+                        echo">$data->KODE_PASIEN $data->NAMA_PASIEN</option>";
                       }
                     } else {
                     echo "<option>Data Pasien Masih Kosong</option>";
@@ -98,8 +112,8 @@ require_once '../../app/class_transaksi.php';
                 <div class="form-group">
                   	<label for="radio" class="col-sm-2 control-label">Tipe Pengobatan</label>
                   			<div class="col-sm-8">
-                  			<div class="radio-inline"><label><input type="radio" name="tipe_pengobatan" value="Rawat Inap"> Rawat Inap</label></div>
-                  			<div class="radio-inline"><label><input checked="" type="radio" name="tipe_pengobatan" value="Rawat Jalan"> Rawat Jalan</label></div>
+                  			<div class="radio-inline"><label><input <?php if($data_transaksi->TIPE_PENGOBATAN=="Rawat Inap"){echo "checked";} ?> type="radio" name="tipe_pengobatan" value="Rawat Inap">Rawat Inap</label></div>
+                  			<div class="radio-inline"><label><input <?php if($data_transaksi->TIPE_PENGOBATAN=="Rawat Jalan"){echo "checked";} ?> type="radio" name="tipe_pengobatan" value="Rawat Jalan">Rawat Jalan</label></div>
                   			</div>
                 </div>
 
@@ -119,8 +133,7 @@ require_once '../../app/class_transaksi.php';
 		<?php
 		include_once 'footer.html';
     if (isset($_POST['btn_save'])) {
-      $transaksi = new Transaksi();
-      $kode_transaksi= $_POST['kode_transaksi'];
+      $kode_transaksi= $_GET['kode_transaksi'];
       $arr_obat = explode(' ',trim($_POST['kode_obat']));
       $kode_obat= $arr_obat[0];
       $arr_kamar = explode(' ',trim($_POST['kode_kamar']));
@@ -135,7 +148,8 @@ require_once '../../app/class_transaksi.php';
       $data = $kamar->edit_kamar($kode_kamar);
       $harga_kamar = (int)$data->HARGA_KAMAR;
       $total= $harga_obat+$harga_kamar;
-      if ($transaksi-> tambah_transaksi($kode_transaksi,$kode_obat,$kode_kamar,$kode_dokter,$kode_pasien,$tipe_pengobatan,$total)) {
+      if ($transaksi-> simpan_transaksi($kode_transaksi,$kode_obat,$kode_kamar,$kode_dokter,$kode_pasien,$tipe_pengobatan,$total)) {
+        $kamar->tambahi_kamar($data_transaksi->KODE_KAMAR);
         $kamar->kurangi_kamar($kode_kamar);
         header("Location:viewtransaksi.php");
       }else {
