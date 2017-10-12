@@ -6,7 +6,6 @@ require_once '../../app/class_obat.php';
 		<div id="page-wrapper">
 			<div class="main-page">
 				<div class="tables">
-					<h3 class="title1">Table Obat</h3>
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table">
 						<h4>Daftar Obat</h4>
 						<table class="table table-hover">

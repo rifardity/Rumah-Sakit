@@ -85,7 +85,7 @@ class Kamar
 
   public function hitung_kamar(){
     try {
-      $sql = $this->db->prepare("SELECT COUNT(*) FROM kamar");
+      $sql = $this->db->prepare("SELECT COUNT(KAPASITAS_KAMAR) FROM kamar");
       $sql->execute();
       return $sql;
     } catch (PDOException $e) {

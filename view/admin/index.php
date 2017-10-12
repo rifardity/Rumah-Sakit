@@ -1,5 +1,8 @@
 <?php
 include_once 'header.html';
+require_once '../../app/class_dokter.php';
+require_once '../../app/class_kamar.php';
+require_once '../../app/class_pasien.php';
 ?>
 		<!-- main content start-->
 		<div id="page-wrapper">
@@ -11,7 +14,12 @@ include_once 'header.html';
 							<h4>Dokter</h4>
 						</div>
 						<div class="stats-right">
-							<label> 150</label>
+							<?php
+							$dokter = new Dokter();
+							$sql = $dokter->hitung_dokter();
+							$data = $sql->fetch(PDO::FETCH_NUM);
+							echo "<label>$data[0]</label>";
+							?>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
@@ -21,7 +29,12 @@ include_once 'header.html';
 							<h4>Pasien</h4>
 						</div>
 						<div class="stats-right">
-							<label> 80</label>
+							<?php
+							$pasien = new Pasien();
+							$sql = $pasien->hitung_pasien();
+							$data = $sql->fetch(PDO::FETCH_NUM);
+							echo "<label>$data[0]</label>";
+							?>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
@@ -31,7 +44,13 @@ include_once 'header.html';
 							<h4>Kamar</h4>
 						</div>
 						<div class="stats-right">
-							<label>51</label>
+							<?php
+							$kamar = new Kamar();
+							$sql = $kamar->tampil_kamar();
+							$sql->execute();
+							$data = $sql->fetch(PDO::FETCH_NUM);
+							echo "<label>$data[0]</label>";
+							?>
 						</div>
 					</div>
 					<div class="clearfix"> </div>

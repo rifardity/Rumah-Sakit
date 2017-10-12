@@ -1,5 +1,6 @@
 <?php
 include_once 'header.html';
+include_once '../../app/class_transaksi.php';
  ?>
 		<!-- main content start-->
 		<div id="page-wrapper">
@@ -11,7 +12,6 @@ include_once 'header.html';
 						<table class="table table-hover">
               <thead>
                 <tr>
-                  <th>No</th>
                   <th>Kode Transaksi</th>
                   <th>Kode Obat</th>
                   <th>Kode Kamar</th>
@@ -24,18 +24,30 @@ include_once 'header.html';
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>TR001</td>
-                  <td>OB001</td>
-                  <td>KM001</td>
-                  <td>DT001</td>
-                  <td>PS001</td>
-                  <td>Rawat Jalan</td>
-                  <td>10000000</td>
-                  <td><button type="button" name="button" class="btn btn-default">Edit</button></td>
-                  <td><button type="button" name="button" class="btn btn-default">Hapus</button></td>
-                </tr>
+                <?php
+                $transaksi = new Transaksi();
+                $sql = $transaksi->tampil_transaksi();
+                $sql->execute();
+                if ($sql->rowCount()>0) {
+                  while ($data = $sql->fetch(PDO::FETCH_OBJ)) {
+                    echo "
+                    <tr>
+                      <td>$data->KODE_TRANSAKSI</td>
+                      <td>$data->KODE_OBAT</td>
+                      <td>$data->KODE_KAMAR</td>
+                      <td>$data->KODE_DOKTER</td>
+                      <td>$data->KODE_PASIEN</td>
+                      <td>$data->TIPE_PENGOBATAN</td>
+                      <td>$data->TOTAL</td>
+                      <td><a href='edittransaksi.php?kode_transaksi=$data->KODE_TRANSAKSI' type='button' name='button' class='btn btn-default'>Edit</a></td>
+                      <td><a href='viewtransaksi.php?hapus=$data->KODE_TRANSAKSI' type='button' name='button' class='btn btn-default'>Hapus</a></td>
+                    </tr>
+                    ";
+                  }
+                }else {
+                  echo "<tr><td>Data Transaksi Masih Kosong</td></tr>";
+                }
+                ?>
 
               </tbody>
             </table>
@@ -46,4 +58,12 @@ include_once 'header.html';
 
 <?php
 include_once 'footer.html';
+if (isset($_GET['hapus'])) {
+  if ($transaksi->hapus_transaksi($_GET['hapus'])) {
+    header("Location:viewtransaksi.php");
+  }else {
+    echo "<script>alert('Gagal Menhapus')</script>";
+  }
+
+}
  ?>
