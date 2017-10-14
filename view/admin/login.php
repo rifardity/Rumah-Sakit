@@ -67,11 +67,14 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
 <?php
 require_once '../../app/class_user.php';
+$user = new User();
+if ($user->is_login()!="") {
+	header("Location:index.php");
+}
 if (isset($_POST['btn_login'])) {
-	$user = new User();
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	if ($user->cek_user($username,$password)) {
+	if ($user->login($username,$password)) {
 		header("Location:index.php");
 	}else {
 		echo "<script>alert('Gagal Login')</script>";

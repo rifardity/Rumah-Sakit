@@ -1,5 +1,9 @@
 <!DOCTYPE HTML>
-<?php ob_start();?>
+<?php ob_start();
+require_once '../../app/class_user.php';
+$user = new User();
+$data = $user->edit_user($_SESSION['user_session']);
+?>
 <html>
 <head>
 <title>Novus Admin Panel an Admin Panel Category Flat Bootstrap Responsive Website Template | Tables :: w3layouts</title>
@@ -107,6 +111,18 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
+						<li>
+							<a href="#"><i class="fa fa-user nav_icon"></i>User <span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level collapse">
+								<li>
+									<a href="inputuser.php">Input Data</a>
+								</li>
+								<li>
+									<a href="viewuser.php">Lihat Data</a>
+								</li>
+							</ul>
+							<!-- /nav-second-level -->
+						</li>
 
 
 					</ul>
@@ -150,16 +166,17 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<div class="profile_img">
 									<span class="prfil-img"><img src="images/a.png" alt=""> </span>
 									<div class="user-name">
-										<p>Wikolia</p>
-										<span>Administrator</span>
+										<p><?php echo $data->USERNAME; ?></p>
+										<span><?php echo $data->LEVEL; ?></span>
 									</div>
 									<i class="fa fa-angle-down lnr"></i>
 									<i class="fa fa-angle-up lnr"></i>
 									<div class="clearfix"></div>
 								</div>
 							</a>
+
 							<ul class="dropdown-menu drp-mnu">
-								<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
+								<li> <a href="logout.php?logout=true" ><i class="fa fa-sign-out"></i> Logout</a> </li>
 							</ul>
 						</li>
 					</ul>
