@@ -86,6 +86,19 @@ class Obat
     }
   }
 
+  public function cari_obat($nama_obat){
+    try {
+      $sql = $this->db->prepare("SELECT * FROM obat WHERE NAMA_OBAT LIKE %:nama_obat%");
+      $sql->bindparam(":nama_obat",$nama_obat);
+      $sql->execute();
+      return $sql;
+    } catch (PDOException $e) {
+      die("Gagal Mencari Kamar : ".$e->getMessage());
+      return false;
+    }
+
+  }
+
 
 
 }

@@ -11,7 +11,7 @@ include_once 'header.html';
                             <div class="col-sm-6 col-sm-offset-1">
                                 <div class="carousel-content">
                                     <h2>We Care About <span>Health</span></h2>
-                                    <p>Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Sakit Rumah  Sakit Rumah Sakit   </p>
+                                    <p>Kami peduli terhadap kesehatan anda dan keluarga mari berkonsultasi dengan tenaga medis kami</p>
                                     <a class="btn btn-primary btn-lg" href="#">Read More</a>
                                 </div>
                             </div>
@@ -26,7 +26,7 @@ include_once 'header.html';
                             <div class="col-sm-6 col-sm-offset-1">
                                 <div class="carousel-content">
                                     <h2>Your <span>Health</span> Is Our Priority</h2>
-                                    <p>Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Sakit Rumah  Sakit Rumah Sakit   </p>
+                                    <p>Kesehatan anda adalah prioritas utama bagi kami untuk itu kami senantiasa memberikan yang terbaik</p>
                                     <a class="btn btn-primary btn-lg" href="#">Read More</a>
                                 </div>
                             </div>
@@ -41,33 +41,33 @@ include_once 'header.html';
       <div class="container">
         <div class="row">
           <div class="col-sm-12 bg-cl">
-            <h2 class="text-center">OUR SERVICE</h2>
+            <h2 class="text-center">Mengapa Kami</h2>
             <div class="col-sm-3 grid-service">
               <i class="center fa fa-handshake-o item-service"></i>
               <h3>PROFESIONAL</h3>
                 <article>
-                  Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit
+                  Bekerja sama dengan para profesional di bidang kesehatan adalah sesuatu yang penting bagi kami. Hubungan ini membantu kami untuk memahami baik kebutuhan pasien maupun manfaat dari pelayanan kami.
                 </article>
             </div>
             <div class="col-sm-3 grid-service">
               <i class="center fa fa-user-md item-service"></i>
               <h3>BERPENGALAMAN</h3>
                 <article>
-                  Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit
+                  Para Tenaga Medis kami mempunyai berbagai macam pengalaman dalam menyelsaikan suatu problem di bidang kesehatan. Dengan pengalaman lebih dari 30 tahun membuat kualitas pelayanan kami menjadi lebih unggul.
                 </article>
             </div>
             <div class="col-sm-3 grid-service">
               <i class="center fa fa-heartbeat item-service"></i>
               <h3>RAMAH</h3>
                 <article>
-                  Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit
+                  Kami menyediakan program khusus untuk menerima keluhan pasien dan berkonsultasi secara intensif. Agar pasien mendapatkan informasi dan penanganan yang tepat sesuai dengan keadaan dan kondisi pasien.
                 </article>
             </div>
             <div class="col-sm-3 grid-service">
               <i class="center fa fa-ambulance item-service"></i>
               <h3>PEDULI</h3>
                 <article>
-                  Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit Rumah Sakit
+                  Kami menyediakan berbagai macam fasilitas gratis baik medis maupun non medis berkualitas standart internasional agar dapat menunjang proses penyembuhan pasien menjadi lebih maksimal.
                 </article>
             </div>
 

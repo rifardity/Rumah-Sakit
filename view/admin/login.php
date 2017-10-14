@@ -41,19 +41,13 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 		<div class="widget-shadow">
 			<div class="login-top">
 				<img  src="images/logo.png" alt="logo">
-				<h4>Welcome back to Novus AdminPanel ! <br> Not a Member? <a href="signup.html">  Sign Up »</a> </h4>
+				<h4>Welcome To Admin Page</h4>
 			</div>
 			<div class="login-body">
 				<form method="post">
 					<input type="text" class="user" name="username" placeholder="Enter your email" required="">
 					<input type="password" name="password" class="lock" placeholder="password">
 					<input type="submit" name="btn_login" value="Sign In">
-					<div class="forgot-grid">
-						<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Remember me</label>
-						<div class="forgot">
-							<a href="#">forgot password?</a>
-						</div>
-					</div>
 				</form>
 			</div>
 		</div>

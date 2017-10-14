@@ -1,11 +1,19 @@
 <?php
 include_once 'header.html';
-include_once '../../app/class_kamar.php';
+include_once '../app/class_kamar.php';
  ?>
+
 <div class="container">
   <div class="row">
-    <div class="col-sm-offset-2 col-sm-8">
-      <h2 class="text-center">Cek Ketersediaan Ruangan</h2>
+   <div class="col-sm-12 checkroom-head">
+     <h3>Cari Ketersediaan Kamar</h3>
+     <p>Mencari kamar menjadi lebih mudah dan efisien dengan sistem yang terintegrasi</p>
+   </div>
+ </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
       <div class="checkroom-bg">
         <div class="col-sm-12">
           <div class="row">
@@ -36,26 +44,41 @@ include_once '../../app/class_kamar.php';
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
         <?php
         if (isset($_POST['btn_cari'])) {
           $kamar = new Kamar();
           $sql = $kamar->cari_kamar($_POST['tipe_kamar']);
+          echo "<h3 class='text-center'>".$_POST['tipe_kamar']."</h3>";
           if ($sql->rowCount()>0) {
+            echo "  <table class='table table-hover'>
+                <thead>
+                  <tr>
+                    <th>Nama Kamar</th>
+                    <th>Kapasitas Tersedia</th>
+                    <th>Harga</th>
+                  </tr>
+                </thead>
+                <tbody>";
             while ($data = $sql->fetch(PDO::FETCH_OBJ)) {
               if ($data->KAPASITAS_KAMAR>0) {
-                echo "
-                <h3>$data->NAMA_KAMAR $data->KAPASITAS_KAMAR $data->HARGA_KAMAR </h3>
+                echo "<tr>
+                      <td>$data->NAMA_KAMAR</td>
+                      <td>$data->KAPASITAS_KAMAR</td>
+                      <td>$data->HARGA_KAMAR</td>
+                    </tr>
                 ";
               }
             }
+            echo "<tbody>
+                  </table>";
           }else {
-            echo "<h3>Data Kamar Masih Kosong</h3>";
+            echo "<h3 class='text-center'>Data Kamar Masih Kosong</h3>";
           }
         }
         ?>
-        <h4 class="text-center">1 Ruangan Tersedian Untuk Pasien</h4>
-      </div>
-
     </div>
   </div>
 </div>

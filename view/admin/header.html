@@ -2,7 +2,13 @@
 <?php ob_start();
 require_once '../../app/class_user.php';
 $user = new User();
-$data = $user->edit_user($_SESSION['user_session']);
+if($user->is_login()!="")
+{
+	$data = $user->edit_user($_SESSION['user_session']);
+}else{
+	header("Location:login.php");
+}
+
 ?>
 <html>
 <head>
@@ -51,6 +57,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 						<li>
 							<a href="index.php"><i class="fa fa-home nav_icon"></i>Dashboard</a>
 						</li>
+						<?php if ($data->LEVEL=="Admin" || $data->LEVEL=="Super Admin" ) {?>
 						<li>
 							<a href="#"><i class="fa fa-shopping-cart nav_icon"></i>Transaksi <span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
@@ -61,8 +68,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<a href="viewtransaksi.php">Lihat Data</a>
 								</li>
 							</ul>
-							<!-- /nav-second-level -->
 						</li>
+						<?php }
+						if ($data->LEVEL=="Admin" || $data->LEVEL=="Super Admin" ) {
+						?>
 						<li>
 							<a href="#"><i class="fa fa-wheelchair nav_icon"></i>Pasien <span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
@@ -73,8 +82,24 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<a href="viewpasien.php">Lihat Data</a>
 								</li>
 							</ul>
-							<!-- /nav-second-level -->
 						</li>
+					<?php }
+					if ($data->LEVEL=="Apoteker" || $data->LEVEL=="Super Admin" ) {
+					?>
+						<li>
+							<a href="#"><i class="fa fa-medkit nav_icon"></i>Obat <span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level collapse">
+								<li>
+									<a href="inputobat.php">Input Data</a>
+								</li>
+								<li>
+									<a href="viewobat.php">Lihat Data</a>
+								</li>
+							</ul>
+						</li>
+					<?php }
+					if ($data->LEVEL=="Super Admin" ) {
+					?>
 						<li>
 							<a href="#"><i class="fa fa-hospital-o nav_icon"></i>Kamar <span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
@@ -85,7 +110,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<a href="viewkamar.php">Lihat Data</a>
 								</li>
 							</ul>
-							<!-- /nav-second-level -->
 						</li>
 						<li>
 							<a href="#"><i class="fa fa-user-md nav_icon"></i>Dokter <span class="fa arrow"></span></a>
@@ -97,19 +121,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<a href="viewdokter.php">Lihat Data</a>
 								</li>
 							</ul>
-							<!-- /nav-second-level -->
-						</li>
-						<li>
-							<a href="#"><i class="fa fa-medkit nav_icon"></i>Obat <span class="fa arrow"></span></a>
-							<ul class="nav nav-second-level collapse">
-								<li>
-									<a href="inputobat.php">Input Data</a>
-								</li>
-								<li>
-									<a href="viewobat.php">Lihat Data</a>
-								</li>
-							</ul>
-							<!-- /nav-second-level -->
 						</li>
 						<li>
 							<a href="#"><i class="fa fa-user nav_icon"></i>User <span class="fa arrow"></span></a>
@@ -121,9 +132,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<a href="viewuser.php">Lihat Data</a>
 								</li>
 							</ul>
-							<!-- /nav-second-level -->
 						</li>
-
+					<?php }?>
 
 					</ul>
 					<div class="clearfix"> </div>
