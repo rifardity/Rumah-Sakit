@@ -38,7 +38,6 @@ require_once '../../app/class_kamar.php';
                       <td><a href='editkamar.php?kode_kamar=$data->KODE_KAMAR' type='button' name='btn_edit' class='btn btn-default'>Edit</a></td>
                       <td><a href='viewkamar.php?hapus=$data->KODE_KAMAR' type='button' name='btn_hapus' class='btn btn-default'>Hapus</a></td>
                     </tr>";
-
                   }
                 }else {
                   echo "<tr><td>Data Masih Kosong</td></tr>";

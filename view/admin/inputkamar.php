@@ -47,7 +47,6 @@ require_once '../../app/class_kamar.php';
 										<input type="text" class="form-control1" name="fasilitas_kamar" placeholder="Fasilitas Kamar" required>
 									</div>
 								</div>
-
                 <div class="form-group">
 									<label for="focusedinput" class="col-sm-2 control-label">Harga</label>
 									<div class="col-sm-8">
@@ -56,7 +55,6 @@ require_once '../../app/class_kamar.php';
 								</div>
                 <div class="form-group">
                   <div class="col-sm-offset-5 col-sm-2">
-
                     <input class="btn btn-default" type="submit" name="btn_save" value="Simpan Kamar">
                   </div>
                 </div>

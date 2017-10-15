@@ -6,7 +6,6 @@ class User
 
   function __construct()
   {
-    session_start();
     $link = new Database();
     $newdb = $link->get_database();
     $this->db = $newdb;

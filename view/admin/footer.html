@@ -8,7 +8,10 @@
 <script src="js/classie.js"></script>
 <script>
 $(document).ready(function(){
-    $('#table').DataTable();
+    $('#table').DataTable({
+      "ordering":   false,
+      "info":     false
+    });
 });
   var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
     showLeftPush = document.getElementById( 'showLeftPush' ),

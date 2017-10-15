@@ -30,7 +30,8 @@ class Pasien
   public function edit_pasien($kode_pasien){
     try {
       $sql = $this->db->prepare("SELECT * FROM pasien WHERE kode_pasien=:kode_pasien");
-      $sql->execute(array(":kode_pasien"=>$kode_pasien));
+      $sql->bindparam(":kode_pasien",$kode_pasien);
+      $sql->execute();
       $data = $sql->fetch(PDO::FETCH_OBJ);
       return $data;
     } catch (PDOException $e) {

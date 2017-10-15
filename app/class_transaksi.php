@@ -33,7 +33,8 @@ class Transaksi
   public function edit_transaksi($kode_transaksi){
     try {
       $sql = $this->db->prepare("SELECT * FROM transaksi WHERE kode_transaksi=:kode_transaksi");
-      $sql->execute(array(":kode_transaksi"=>$kode_transaksi));
+      $sql->bindparam(":kode_transaksi",$kode_transaksi);
+      $sql->execute();
       $data = $sql->fetch(PDO::FETCH_OBJ);
       return $data;
     } catch (PDOException $e) {

@@ -31,7 +31,8 @@ class Kamar
   public function edit_kamar($kode_kamar){
   try {
     $sql =$this->db->prepare("SELECT * FROM kamar WHERE kode_kamar=:kode_kamar");
-    $sql->execute(array(":kode_kamar"=>$kode_kamar));
+    $sql->bindparam(":kode_kamar",$kode_kamar);
+    $sql->execute();
     $data =$sql->fetch(PDO::FETCH_OBJ);
     return $data;
   } catch (PDOException $e) {

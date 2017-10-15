@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 12 Okt 2017 pada 15.21
+-- Generation Time: 15 Okt 2017 pada 09.27
 -- Versi Server: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -35,6 +35,13 @@ CREATE TABLE `dokter` (
   `POLI_DOKTER` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `dokter`
+--
+
+INSERT INTO `dokter` (`KODE_DOKTER`, `NAMA_DOKTER`, `ALAMAT_DOKTER`, `TELEPON_DOKTER`, `SPESIALIS_DOKTER`, `POLI_DOKTER`) VALUES
+('DK001', 'Felicia Citra', 'SImo Gunung Kidul', '0845', 'Penyakit Dalam', 'Paru');
+
 -- --------------------------------------------------------
 
 --
@@ -55,8 +62,9 @@ CREATE TABLE `kamar` (
 --
 
 INSERT INTO `kamar` (`KODE_KAMAR`, `NAMA_KAMAR`, `KAPASITAS_KAMAR`, `TIPE_KAMAR`, `FASILITAS_KAMAR`, `HARGA_KAMAR`) VALUES
-('KM001', 'Melati', 20, 'VIP A', 'Ac Dan Bed', 120000),
-('KM002', 'Mawar', 10, 'VIP B', 'Ac Dan Kipas Angin', 34444);
+('KM001', 'Melati', 14, 'VIP A', 'Ac Dan Bed', 120000),
+('KM002', 'Mawar', 7, 'VIP B', 'Ac Dan Kipas Angin', 34444),
+('KM003', 'Matahari', 1, 'VIP A', 'Kulkas Tv', 34000);
 
 -- --------------------------------------------------------
 
@@ -71,6 +79,14 @@ CREATE TABLE `obat` (
   `TIPE_OBAT` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `obat`
+--
+
+INSERT INTO `obat` (`KODE_OBAT`, `NAMA_OBAT`, `HARGA_OBAT`, `TIPE_OBAT`) VALUES
+('OB001', 'Komix', 23000, 'Sirup'),
+('OB2', 'Antangin', 23000, 'Tablet');
+
 -- --------------------------------------------------------
 
 --
@@ -84,6 +100,13 @@ CREATE TABLE `pasien` (
   `TELEPON_PASIEN` varchar(20) DEFAULT NULL,
   `PENYAKIT_PASIEN` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pasien`
+--
+
+INSERT INTO `pasien` (`KODE_PASIEN`, `NAMA_PASIEN`, `ALAMAT_PASIEN`, `TELEPON_PASIEN`, `PENYAKIT_PASIEN`) VALUES
+('PS001', 'Aries Setiawan', 'Banyu Urip', '067575', 'Jantung');
 
 -- --------------------------------------------------------
 
@@ -101,6 +124,19 @@ CREATE TABLE `transaksi` (
   `TOTAL` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `transaksi`
+--
+
+INSERT INTO `transaksi` (`KODE_TRANSAKSI`, `KODE_OBAT`, `KODE_KAMAR`, `KODE_DOKTER`, `KODE_PASIEN`, `TIPE_PENGOBATAN`, `TOTAL`) VALUES
+('cb', 'OB2', 'KM002', 'DK001', 'PS001', 'Rawat Inap', 57444),
+('COba2', 'OB001', 'KM001', 'DK001', 'PS001', 'Rawat Inap', 143000),
+('TR000000', 'OB001', 'KM001', 'DK001', 'PS001', 'Rawat Jalan', 143000),
+('TR003', 'OB2', 'KM002', 'DK001', 'PS001', 'Rawat Inap', 57444),
+('TR005', 'OB001', 'KM001', 'DK001', 'PS001', 'Rawat Inap', 143000),
+('TR008', 'OB001', 'KM002', 'DK001', 'PS001', 'Rawat Inap', 57444),
+('TR009', 'OB001', 'KM001', 'DK001', 'PS001', 'Rawat Inap', 143000);
+
 -- --------------------------------------------------------
 
 --
@@ -109,8 +145,8 @@ CREATE TABLE `transaksi` (
 
 CREATE TABLE `user` (
   `USERNAME` varchar(20) NOT NULL,
-  `PASSWORD` varchar(50) NOT NULL,
-  `LEVEL` varchar(10) NOT NULL
+  `PASSWORD` varchar(256) NOT NULL,
+  `LEVEL` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -118,9 +154,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`USERNAME`, `PASSWORD`, `LEVEL`) VALUES
-('ardi', 'admin', 'admin'),
-('doni', 'apoteker', 'apoteker'),
-('master', 'master', 'master');
+('admin', '$2y$10$fhRzaksK2ebwmghv85lSCuNQxcgIg/.tvR9tJHqGDnIRcaQDTwC92', 'Admin'),
+('apotek', '$2y$10$uS8FEqeqv/WfRMhTyz45Z.xWuzFLsed.i5EplF9oShvvACEs4z69q', 'Apoteker'),
+('cadangan', '$2y$10$XiovJIioPplzTPluJaj7C.4azpNbrtxPa/6u5wpYOillk9lhCJ1ku', 'Super Admin'),
+('super', '$2y$10$f0whEzTPTTnSLBRFSVIEzuSWlwa.iIDfr.LO5V8V2Mo/KrGYlDCGq', 'Super Admin');
 
 --
 -- Indexes for dumped tables

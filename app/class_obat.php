@@ -29,7 +29,8 @@ class Obat
   public function edit_obat($kode_obat){
     try {
       $sql = $this->db->prepare("SELECT * FROM obat WHERE kode_obat=:kode_obat");
-      $sql->execute(array(":kode_obat"=>$kode_obat));
+      $sql->bindparam(":kode_obat",$kode_obat);
+      $sql->execute();
       $data = $sql->fetch(PDO::FETCH_OBJ);
       return $data;
     } catch (PDOException $e) {
@@ -88,7 +89,7 @@ class Obat
 
   public function cari_obat($nama_obat){
     try {
-      $sql = $this->db->prepare("SELECT * FROM obat WHERE NAMA_OBAT LIKE %:nama_obat%");
+      $sql = $this->db->prepare("SELECT * FROM obat WHERE NAMA_OBAT LIKE :nama_obat");
       $sql->bindparam(":nama_obat",$nama_obat);
       $sql->execute();
       return $sql;
@@ -98,9 +99,6 @@ class Obat
     }
 
   }
-
-
-
 }
 
 

@@ -9,7 +9,7 @@ require_once '../../app/class_pasien.php';
 					<h3 class="title1">Table Pasien</h3>
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table">
 						<h4>Daftar Pasien</h4>
-						<table class="table table-hover">
+						<table id="table" class="table table-hover">
               <thead>
                 <tr>
                   <th>Kode</th>

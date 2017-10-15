@@ -8,7 +8,7 @@ include_once '../../app/class_transaksi.php';
 				<div class="tables">
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table">
 						<h4>Transaksi Tercatat</h4>
-						<table class="table table-hover">
+						<table id="table" class="table table-hover">
               <thead>
                 <tr>
                   <th>Kode Transaksi</th>

@@ -8,7 +8,7 @@ require_once '../../app/class_user.php';
 				<div class="tables">
 					<div class="bs-example widget-shadow" data-example-id="hoverable-table">
 						<h4>Daftar user</h4>
-						<table class="table table-hover">
+						<table id="table" class="table table-hover">
               <thead>
                 <tr>
                   <th>Username</th>

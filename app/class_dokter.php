@@ -31,7 +31,8 @@ class Dokter
   public function edit_dokter($kode_dokter){
     try {
       $sql = $this->db->prepare("SELECT * FROM dokter WHERE kode_dokter=:kode_dokter");
-      $sql->execute(array(":kode_dokter"=>$kode_dokter));
+      $sql->bindparam(":kode_dokter",$kode_dokter);
+      $sql->execute();
       $data = $sql->fetch(PDO::FETCH_OBJ);
       return $data;
     } catch (PDOException $e) {

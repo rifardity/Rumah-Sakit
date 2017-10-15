@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^$ /rs/view/ [R=301,L]

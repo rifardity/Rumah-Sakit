@@ -2,6 +2,7 @@
 <?php ob_start();
 require_once '../../app/class_user.php';
 $user = new User();
+session_start();
 if($user->is_login()!="")
 {
 	$data = $user->edit_user($_SESSION['user_session']);
@@ -12,7 +13,7 @@ if($user->is_login()!="")
 ?>
 <html>
 <head>
-<title>Novus Admin Panel an Admin Panel Category Flat Bootstrap Responsive Website Template | Tables :: w3layouts</title>
+<title>Admin Page TrustMedis</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -21,7 +22,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
-<!--<link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">-->
+<link rel="stylesheet" href="jquery.dataTables.min.css">
+<link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <!-- font CSS -->
 <!-- font-awesome icons -->
@@ -30,7 +32,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
  <!-- js-->
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/modernizr.custom.js"></script>
-<!--<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>-->
+<script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="js/dataTables.bootstrap.min.js" type="text/javascript"></script>
 <!--webfonts-->
 <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <!--//webfonts-->
